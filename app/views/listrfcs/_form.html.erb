@@ -1,0 +1,45 @@
+<%= form_for(@listrfc) do |f| %>
+  <% if @listrfc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listrfc.errors.count, "error") %> prohibited this listrfc from being saved:</h2>
+
+      <ul>
+      <% @listrfc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :rfc %><br>
+    <%= f.text_field :rfc %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :cp %><br>
+    <%= f.text_field :cp %>
+  </div>
+  <div class="field">
+    <%= f.label :uuid_phone %><br>
+    <%= f.text_field :uuid_phone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

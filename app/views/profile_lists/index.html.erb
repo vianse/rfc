@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profile Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Birthday</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Cp</th>
+      <th>uuid_phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profile_lists.each do |profile_list| %>
+      <tr>
+        <td><%= profile_list.full_name %></td>
+        <td><%= profile_list.phone %></td>
+        <td><%= profile_list.email %></td>
+        <td><%= profile_list.birthday %></td>
+        <td><%= profile_list.address %></td>
+        <td><%= profile_list.city %></td>
+        <td><%= profile_list.state %></td>
+        <td><%= profile_list.country %></td>
+        <td><%= profile_list.cp %></td>
+        <td><%= profile_list.uuid_phone %></td>
+        <td><%= link_to 'Show', profile_list %></td>
+        <td><%= link_to 'Edit', edit_profile_list_path(profile_list) %></td>
+        <td><%= link_to 'Destroy', profile_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profile list', new_profile_list_path %>

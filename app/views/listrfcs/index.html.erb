@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Listrfcs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rfc</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Cp</th>
+      <th>Uuid phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listrfcs.each do |listrfc| %>
+      <tr>
+        <td><%= listrfc.name %></td>
+        <td><%= listrfc.rfc %></td>
+        <td><%= listrfc.address %></td>
+        <td><%= listrfc.phone %></td>
+        <td><%= listrfc.email %></td>
+        <td><%= listrfc.cp %></td>
+        <td><%= listrfc.uuid_phone %></td>
+        <td><%= link_to 'Show', listrfc %></td>
+        <td><%= link_to 'Edit', edit_listrfc_path(listrfc) %></td>
+        <td><%= link_to 'Destroy', listrfc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listrfc', new_listrfc_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @listrfc.name %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @listrfc.rfc %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @listrfc.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @listrfc.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @listrfc.email %>
+</p>
+
+<p>
+  <strong>Cp:</strong>
+  <%= @listrfc.cp %>
+</p>
+
+<p>
+  <strong>Uuid phone:</strong>
+  <%= @listrfc.uuid_phone %>
+</p>
+
+<%= link_to 'Edit', edit_listrfc_path(@listrfc) %> |
+<%= link_to 'Back', listrfcs_path %>
