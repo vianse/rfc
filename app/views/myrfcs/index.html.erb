@@ -40,6 +40,7 @@ font-family: Helvetica;
 font-size: 38px;
 color: #697689;
 line-height: 58px;
+margin-left: 10px;
 }
 .subtitulo{
 /* Listado de Datos: */
@@ -47,11 +48,13 @@ font-family: AvenirNext-DemiBold;
 font-size: 36px;
 color: #2CCCE4;
 line-height: 49px;
+margin-left: 10px;
 }
 .borde_table{
 /* Rectangle 8: */
 background: #FFFFFF;
 border: 1px solid #979797;
+margin-left: 10px;
 }
 .text_table_head{
   /* Nombre o razón socia: */
@@ -59,6 +62,7 @@ font-family: Helvetica;
 font-size: 14px;
 color: #697689;
 line-height: 17px;
+
 
 }
 .celda{
@@ -91,7 +95,7 @@ padding: 20px;
 <div>
 <div class="column_left"></div>
 <div class="column_right">
-  <span class="empresa">Pizzas Pepe SA de CV</span>
+  <span class="empresa"><%= @name %> -- Comercio ID: <%= @empresa %></span>
 <div class="subtitulo">Listado de Datos</div>
 
 <table class="borde_table">
@@ -117,7 +121,6 @@ padding: 20px;
         <td class="celda_contenido"><%= myrfc.email %></td>
         <td class="celda_contenido"><%= myrfc.cp %></td>
         <td ><%= link_to 'Show', myrfc %></td>
-        <td><%= link_to 'Edit', edit_myrfc_path(myrfc) %></td>
         <td><%= link_to 'Destroy', myrfc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
