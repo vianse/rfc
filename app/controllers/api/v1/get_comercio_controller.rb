@@ -1,6 +1,6 @@
 class Api::V1::GetComercioController <ApplicationController
 	def index
-		@profile = Myrfc.where(:comercio_id => params[:comercio])
-		render json: {list: @profile}
+		@profile = Empresa.where(:comercio_id => params[:comercio]).pluck(:name)
+		render json: {empresa: @profile}
 	end
 end
