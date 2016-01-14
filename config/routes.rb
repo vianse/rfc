@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :empresas
+  resources :myrfcs
   resources :listrfcs
   resources :profile_lists
   resources :user_apps

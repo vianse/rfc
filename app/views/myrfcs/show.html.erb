@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @myrfc.name %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @myrfc.rfc %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @myrfc.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @myrfc.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @myrfc.email %>
+</p>
+
+<p>
+  <strong>Cp:</strong>
+  <%= @myrfc.cp %>
+</p>
+
+<p>
+  <strong>Comercio:</strong>
+  <%= @myrfc.comercio_id %>
+</p>
+
+<p>
+  <strong>Referencia:</strong>
+  <%= @myrfc.referencia %>
+</p>
+
+<%= link_to 'Edit', edit_myrfc_path(@myrfc) %> |
+<%= link_to 'Back', myrfcs_path %>

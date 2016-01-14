@@ -1,0 +1,2 @@
+module MyrfcsHelper
+end
