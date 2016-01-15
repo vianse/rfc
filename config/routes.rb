@@ -37,6 +37,8 @@ Rails.application.routes.draw do
       #resources :get_rfc_detalles, path: "detalles"
       resources :get_user_app, path: "get_user"
       resources :crear_user_app, path: "create_user"
+      resources :get_rfc, path: "myrfcs"
+
       
 
     end
