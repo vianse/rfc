@@ -5,12 +5,20 @@ class Api::V1::CompartirRfcController <ApplicationController
   
  end
  def create
- 
- @crear_rfc = Myrfc.create(rfc_params)
- render json: {
+ @empresa = Empresa.where(:comercio_id => params[:comercio]).pluck(:id).first
+ if @empresa.blank?
+ 	render json: {
+           message: "El comercio no existe, favor de intentar nuevamente."
+         }
+ else
+ 	@crear_rfc = Myrfc.create(rfc_params)
+ 	render json: {
            message: "Datos guardados satisfactoriamente."
          }
        
+ end
+
+ 
  end
  private
 def rfc_params
