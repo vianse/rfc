@@ -8,7 +8,8 @@ class Api::V1::CompartirRfcController <ApplicationController
  @empresa = Empresa.where(:comercio_id => params[:comercio]).pluck(:id).first
  if @empresa.blank?
  	render json: {
-           message: "El comercio no existe, favor de intentar nuevamente."
+           message: "El comercio no existe, favor de intentar nuevamente.",
+           code: 1
          }
  else
  	@crear_rfc = Myrfc.create(rfc_params)
