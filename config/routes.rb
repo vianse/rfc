@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'control/index'
+
   devise_for :usuarios
   resources :empresas
   resources :myrfcs
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
   post 'charges/create'
 
   get 'charges/show'
+
+   get 'home' => 'myrfcs#index', as: :home
 
   resources :myrfcs
   resources :empresas
@@ -44,7 +48,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'control#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

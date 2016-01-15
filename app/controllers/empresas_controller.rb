@@ -4,7 +4,15 @@ class EmpresasController < ApplicationController
   # GET /empresas
   # GET /empresas.json
   def index
-    @empresas = Empresa.all
+    if usuario_signed_in? 
+    @empresa = Empresa.where(:user_id => current_usuario.id).pluck(:id)
+    if @empresa.blank?
+      redirect_to '/empresas/new'
+    else
+      redirect_to '/home'
+    end
+  else
+  end
   end
 
   # GET /empresas/1
@@ -25,16 +33,10 @@ class EmpresasController < ApplicationController
   # POST /empresas.json
   def create
     @empresa = Empresa.new(empresa_params)
-
-    respond_to do |format|
       if @empresa.save
-        format.html { redirect_to @empresa, notice: 'Empresa was successfully created.' }
-        format.json { render :show, status: :created, location: @empresa }
+        redirect_to '/home'
       else
-        format.html { render :new }
-        format.json { render json: @empresa.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /empresas/1

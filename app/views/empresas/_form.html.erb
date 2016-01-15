@@ -1,3 +1,96 @@
+<style type="text/css">
+.textbox{
+  /* Base: */
+    background: #FFFFFF;
+    border: 4px solid #D6DEE9;
+    border-radius: 10px;
+    /* Eje. Pizzas el bajío: */
+    font-family: AvenirNext-Regular;
+    font-size: 20px;
+    color: #B2BCCA;
+    letter-spacing: 0.53px;
+    line-height: 45px;
+    padding: 3px;
+    width: 400px;
+
+}
+.textbox:focus{
+  /* Base: */
+    border: 4px solid #2CCCE4;
+    border-radius: 10px;
+    /* Typed Text: */
+    font-family: AvenirNext-Regular;
+    font-size: 20px;
+    color: #697689;
+    letter-spacing: 0.53px;
+    line-height: 45px;
+}
+.nav{
+  /* Rectangle 1: */
+    background: #FFFFFF;
+    border: 1px solid #D9E3F0;
+    top: 0px;
+    height: 80px;
+}
+.session{
+  /* Has iniciado sesión : */
+    font-family: Helvetica;
+    font-size: 12px;
+    color: #697689;
+    line-height: 14px;
+    position: relative;
+    left: 65%;
+    top:14px;
+}
+.text{
+    /* Nombre corto.: */
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #697689;
+    line-height: 29px;
+    text-align: center;
+
+}
+.header{
+  /* Rectangle 3: */
+background: #2CCCE4;
+border: 1px solid #2CCCE4;
+margin-bottom: 10px;
+}
+.text_head{
+  /* Configuración del ne: */
+font-family: Helvetica;
+font-size: 40px;
+color: #697689;
+line-height: 58px;
+text-align: center;
+margin-bottom: 20px;
+}
+.button{
+  /* Base: */
+background: #37D67A;
+border-radius: 8px;
+/* Button: */
+font-family: AvenirNext-DemiBold;
+font-size: 20px;
+color: #FFFFFF;
+letter-spacing: 0.5px;
+line-height: 41px;
+border: none;
+right: 0px;
+padding: 10px;
+}
+.button:hover{
+  opacity: .75;
+}
+form{
+  position: relative;
+  padding-left: 35%;
+}
+
+</style>
+<div class="header"></div>
+<div class="text_head">Configuración de tu negocio</div>
 <%= form_for(@empresa) do |f| %>
   <% if @empresa.errors.any? %>
     <div id="error_explanation">
@@ -12,22 +105,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label "Ingresa un nombre corto" , :class => "text"%><br>
+    <%= f.text_field :name, :placeholder => "Eje. Pizzas del bajío", :class=> "textbox" %>
   </div>
   <div class="field">
-    <%= f.label :razon %><br>
-    <%= f.text_field :razon %>
+    <%= f.label "Ingresa tu razón social", :class => "text" %><br>
+    <%= f.text_field :razon, :placeholder => "Eje. Acme SA de CV", :class=> "textbox" %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id, :value => current_usuario.id %>
   </div>
   <div class="field">
-    <%= f.label :comercio_id %><br>
-    <%= f.text_field :comercio_id %>
+    <%= f.hidden_field :comercio_id ,:value => rand(5..1000000)%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Registrar negocio",:class => "button" %>
   </div>
 <% end %>
