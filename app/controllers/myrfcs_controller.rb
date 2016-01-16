@@ -3,10 +3,12 @@ class MyrfcsController < ApplicationController
 
   # GET /myrfcs
   # GET /myrfcs.json
+
   def index
     @name = Empresa.where(:user_id => current_usuario.id).pluck(:name).first
     @empresa = Empresa.where(:user_id => current_usuario.id).pluck(:comercio_id).first
     @myrfcs = Myrfc.where(:comercio_id => @empresa)
+
   end
 
   # GET /myrfcs/1

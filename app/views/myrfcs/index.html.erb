@@ -122,7 +122,7 @@ padding: 20px;
   <tbody>
     <% @myrfcs.each do |myrfc| %>
       <tr>
-        <td class="celda_contenido"><%= myrfc.name %></td>
+        <td class="celda_contenido"><%= myrfc.name %> -- <%= time_ago_in_words(myrfc.created_at) %></td>
         <td class="celda_contenido"><%= myrfc.rfc %></td>
         <td class="celda_contenido"><%= myrfc.address %></td>
         <td class="celda_contenido"><%= myrfc.phone %></td>
