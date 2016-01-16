@@ -1,44 +1,179 @@
+<style type="text/css">
+.textbox{
+  /* Base: */
+    background: #FFFFFF;
+    border: 4px solid #D6DEE9;
+    border-radius: 10px;
+    /* Eje. Pizzas el bajío: */
+    font-family: AvenirNext-Regular;
+    font-size: 20px;
+    color: #B2BCCA;
+    letter-spacing: 0.53px;
+    line-height: 45px;
+    padding: 3px;
+    width: 400px;
+
+}
+.textbox:focus{
+  /* Base: */
+    border: 4px solid #2CCCE4;
+    border-radius: 10px;
+    /* Typed Text: */
+    font-family: AvenirNext-Regular;
+    font-size: 20px;
+    color: #697689;
+    letter-spacing: 0.53px;
+    line-height: 45px;
+}
+.nav{
+  /* Rectangle 1: */
+    background: #FFFFFF;
+    border: 1px solid #D9E3F0;
+    top: 0px;
+    height: 80px;
+}
+.session{
+  /* Has iniciado sesión : */
+    font-family: Helvetica;
+    font-size: 12px;
+    color: #697689;
+    line-height: 14px;
+    position: relative;
+    left: 65%;
+    top:14px;
+}
+.text{
+    /* Nombre corto.: */
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #697689;
+    line-height: 29px;
+    text-align: center;
+
+}
+.header{
+  /* Rectangle 3: */
+background: #2CCCE4;
+border: 1px solid #2CCCE4;
+margin-bottom: 10px;
+}
+.text_head{
+  /* Configuración del ne: */
+font-family: Helvetica;
+font-size: 40px;
+color: #697689;
+line-height: 58px;
+text-align: center;
+margin-bottom: 20px;
+}
+.button{
+  /* Base: */
+background: #37D67A;
+border-radius: 8px;
+/* Button: */
+font-family: AvenirNext-DemiBold;
+font-size: 20px;
+color: #FFFFFF!important;
+letter-spacing: 0.5px;
+line-height: 41px;
+border: none;
+right: 0px;
+padding: 10px;
+text-decoration: none;
+float: left;
+
+}
+.button:hover{
+  opacity: .75;
+  background: #37D67A;
+}
+.container{
+  position: relative;
+  padding-left: 35%;
+}
+.label{
+    /* Typed Text: */
+  font-family: AvenirNext-Regular;
+  font-size: 20px;
+  color: #697689;
+  letter-spacing: 0.53px;
+  line-height: 20px;
+}
+.label_copy{
+/* Typed Text: */
+font-family: AvenirNext-Regular;
+font-size: 18px;
+color: #697689;
+letter-spacing: 0.53px;
+line-height: 20px;
+width: 50%;
+}
+.label_copy:hover{
+  background-color: #697689;
+  color: white;
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #FFA69E;
+}
+
+</style>
+<div class="nav">
+<p class="navbar-text pull-right">
+<% if usuario_signed_in? %>
+      <span class="session">Has iniciado sesión como <strong><%= current_usuario.email %></strong>.
+        <%= link_to 'Edit profile', edit_usuario_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_usuario_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_usuario_session_path, :class => 'navbar-link'  %>
+      <% end %>
+     </span>
+</div>
+<div class="header"></div>
+<div class="text_head">¡Listo para copiar la información!</div>
+
+<div class="container">
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
-  <%= @myrfc.name %>
+  <span class="label">Nombre:</span>
+  <span class="label_copy"><%= @myrfc.name %></span>
+</p>
+<p>
+  <span class="label">Rfc:</span>
+  <span class="label_copy"><%= @myrfc.rfc %></span>
 </p>
 
 <p>
-  <strong>Rfc:</strong>
-  <%= @myrfc.rfc %>
+  <span class="label">Dirección:</span>
+  <span class="label_copy"><%= @myrfc.address %></span>
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @myrfc.address %>
+  <span class="label">Telefono:</span>
+  <span class="label_copy"><%= @myrfc.phone %></span>
 </p>
 
 <p>
-  <strong>Phone:</strong>
-  <%= @myrfc.phone %>
+  <span class="label">Correo Electronico:</span>
+  <span class="label_copy"><%= @myrfc.email %></span>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @myrfc.email %>
+  <span class="label">Código postal:</span>
+  <span class="label_copy"><%= @myrfc.cp %></span>
 </p>
 
 <p>
-  <strong>Cp:</strong>
-  <%= @myrfc.cp %>
+  <span class="label">Comercio:</span>
+  <span class="label_copy"><%= @myrfc.comercio_id %></span>
 </p>
 
 <p>
-  <strong>Comercio:</strong>
-  <%= @myrfc.comercio_id %>
+  <span class="label">Referencia:</span>
+  <span class="label_copy"><%= @myrfc.referencia %></span>
 </p>
+<%= link_to 'Regresar a listado', inicio_path, :class => "button" %>
+</div>
 
-<p>
-  <strong>Referencia:</strong>
-  <%= @myrfc.referencia %>
-</p>
-
-<%= link_to 'Edit', edit_myrfc_path(@myrfc) %> |
-<%= link_to 'Back', myrfcs_path %>

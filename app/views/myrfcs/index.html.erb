@@ -85,7 +85,7 @@ padding: 20px;
     font-size: 12px;
     color: #697689;
     line-height: 14px;
-    padding: 5px;
+    padding: 10px;
 }
 </style>
 
@@ -128,8 +128,8 @@ padding: 20px;
         <td class="celda_contenido"><%= myrfc.phone %></td>
         <td class="celda_contenido"><%= myrfc.email %></td>
         <td class="celda_contenido"><%= myrfc.cp %></td>
-        <td ><%= link_to 'Show', myrfc %></td>
-        <td><%= link_to 'Destroy', myrfc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td ><%= link_to 'Copiar', show_path(:id => myrfc.id)%></td>
+        <td><%= link_to 'Eliminar', myrfc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

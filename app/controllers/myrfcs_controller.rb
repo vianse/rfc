@@ -12,6 +12,13 @@ class MyrfcsController < ApplicationController
   # GET /myrfcs/1
   # GET /myrfcs/1.json
   def show
+    @myrfcs = Myrfc.where(:id => params[:id]).pluck(:comercio_id).first
+    @empresa = Empresa.where(:comercio_id => @myrfcs).pluck(:user_id).first
+
+    if @empresa.to_i == current_usuario.id
+      else
+      render json: {message: "Url no existe o no tienes acceso"}
+    end
   end
 
   # GET /myrfcs/new

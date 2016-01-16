@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   get 'charges/show'
 
-   get 'home' => 'myrfcs#index', as: :home
+  get 'home' => 'myrfcs#index', as: :inicio
+  get '/home/:id' =>  'myrfcs#show', as: :show
 
   resources :myrfcs
   resources :empresas

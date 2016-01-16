@@ -18,8 +18,6 @@ class Api::V1::CompartirRfcController <ApplicationController
          }
        
  end
-
- 
  end
  private
 def rfc_params
