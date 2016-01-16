@@ -7,7 +7,7 @@ class MyrfcsController < ApplicationController
   def index
     @name = Empresa.where(:user_id => current_usuario.id).pluck(:name).first
     @empresa = Empresa.where(:user_id => current_usuario.id).pluck(:comercio_id).first
-    @myrfcs = Myrfc.where(:comercio_id => @empresa)
+    @myrfcs = Myrfc.where(:comercio_id => @empresa).order(created_at: :desc)
 
   end
 
